@@ -11,13 +11,13 @@ imgThree = 'a8.tif';
 [imgOne3, imgOneRMS3] = getOptimizedGreyImage(imgOne,3);
 
 
-imshow(imgOne1); title(['ImageOne with RMS value: ', num2str(imgOneRMS1)]);
+figure, imshow(imgOne1); title(['ImageOne with RMS value: ', num2str(imgOneRMS1)]);
 
 imgOne1Normalized = normalizeImg(imgOne1);
 imgOne1NormalizedRMS = rmsContrast(imgOne1Normalized);
 
 
-imshow(imgOne1Normalized); title(['ImageOneNormalized with RMS value: ', num2str(imgOne1NormalizedRMS)]);
+figure, imshow(imgOne1Normalized); title(['ImageOneNormalized with RMS value: ', num2str(imgOne1NormalizedRMS)]);
 
 
 

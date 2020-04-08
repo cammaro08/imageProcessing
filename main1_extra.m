@@ -35,3 +35,16 @@ BW2 = edge(lolz2,'canny');
 
 figure,imshow(BW2),title('edge detection');
 
+
+SE1 = strel('disk',1);
+erodedBW2 = imdilate(BW2,SE1);
+
+figure,imshow(erodedBW2),title('Dilated edge detection');
+
+%labelling
+
+
+labeledImage = bwlabel(erodedBW2, 8);
+coloredLabels = label2rgb (labeledImage, 'hsv', 'k', 'noshuffle');
+figure,imshow(coloredLabels),title('Labeled Image, from bwlabel()');
+

@@ -44,7 +44,20 @@ figure,imshow(erodedBW2),title('Dilated edge detection');
 %labelling
 
 
-labeledImage = bwlabel(erodedBW2, 8);
-coloredLabels = label2rgb (labeledImage, 'hsv', 'k', 'noshuffle');
-figure,imshow(coloredLabels),title('Labeled Image, from bwlabel()');
+% labeledImage = bwlabel(erodedBW2, 8);
+% coloredLabels = label2rgb (labeledImage, 'hsv', 'k', 'noshuffle');
+% figure,imshow(coloredLabels),title('Labeled Image, from bwlabel()');
 
+captionFontSize = 14;
+
+figure,imshow(I2);
+title('Outlines, from bwboundaries()', 'FontSize', captionFontSize); 
+axis image; % Make sure image is not artificially stretched because of screen's aspect ratio.
+hold on;
+boundaries = bwboundaries(erodedBW2);
+numberOfBoundaries = size(boundaries, 1);
+for k = 1 : numberOfBoundaries
+	thisBoundary = boundaries{k};
+	plot(thisBoundary(:,2), thisBoundary(:,1), 'g', 'LineWidth', 2);
+end
+hold off;
